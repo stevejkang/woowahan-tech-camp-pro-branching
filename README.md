@@ -36,5 +36,15 @@ git push personal stevejkang:main
 git checkout -b step2
 ```
 
+> `git remote -v` 의 결과는 아래와 같다.
+```
+origin	https://github.com/stevejkang/java-lotto-pro.git (fetch)
+origin	https://github.com/stevejkang/java-lotto-pro.git (push)
+personal	https://github.com/stevejkang/java-lotto-pro-personal.git (fetch)
+personal	https://github.com/stevejkang/java-lotto-pro-personal.git (push)
+upstream	https://github.com/next-step/java-lotto-pro.git (fetch)
+upstream	https://github.com/next-step/java-lotto-pro.git (push)
+```
+
 ### Reference
 - [NEXTSTEP 코드리뷰 사이클](https://github.com/next-step/nextstep-docs/tree/master/codereview)
