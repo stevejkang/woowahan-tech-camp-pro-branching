@@ -10,15 +10,22 @@ fork한 repository에서 GitHub username으로 branch를 생성하다보니, 기
 ## Full-Cycle
 > 직접 사용하고자 하는 경우 `stevejkang` 필드를 본인에게 맞춰 변경하여 사용할 것.
 
-### 미션시작 ~ PR
+### Repository Setup
 ```bash
 # Fork repository
 git clone -b stevejkang --single-branch https://github.com/stevejkang/java-lotto-pro.git
 cd java-lotto-pro
+git remote add upstream https://github.com/next-step/java-lotto-pro.git # 최초 1회만
+# Create *-personal repository
+git remote add personal https://github.com/stevejkang/java-lotto-pro-personal.git # 최초 1회만
+```
+
+### Step 시작 ~ PR
+```bash
 git checkout -b step1
 # Commit something
 git push origin step1
-# PR
+# Make PR
 # Base: stevejkang/java-lotto-pro:step1
 # Destination: next-step/java-lotto-pro:stevejkang
 ```
@@ -26,12 +33,10 @@ git push origin step1
 ### PR 머지 후 새로운 Step 시작
 ```bash
 git checkout stevejkang
-git branch -D step1
-git remote add upstream https://github.com/next-step/java-lotto-pro.git # 최초 1회만
+git branch -D step1 # do not delete branch from remote repository
 git fetch upstream stevejkang
 git rebase upstream/stevejkang
-# Create *-personal repository
-git remote add personal https://github.com/stevejkang/java-lotto-pro-personal.git # 최초 1회만
+git push origin stevejkang
 git push personal stevejkang:main
 git checkout -b step2
 ```
